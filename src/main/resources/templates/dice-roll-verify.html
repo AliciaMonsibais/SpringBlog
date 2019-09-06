@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<nav th:replace="partials :: head ('Home')"/>
+
+<body>
+<div class="main">
+<nav th:replace="partials :: navbar"/>
+
+<p>You guessed <span th:text="${n}"></span></p>
+<p>The correct number is <span th:text="${correctNumber}"></span></p>
+<p th:if="${verify}">You guessed correctly!</p>
+<p th:if="!${verify}">That's not correct. Try again.</p>
+</div>
+<nav th:replace="partials :: footer"/>
+
+<nav th:replace="partials :: materialize-script"/>
+</body>
+</html>

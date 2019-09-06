@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<nav th:replace="partials :: head ('Guess')"/>
+<body>
+
+<nav th:replace="partials :: navbar" />
+<div class="main">
+<h3>Guess a Number</h3>
+
+<a href="/roll-dice/1">1</a>
+<a href="/roll-dice/2">2</a>
+<a href="/roll-dice/3">3</a>
+<a href="/roll-dice/4">4</a>
+<a href="/roll-dice/5">5</a>
+<a href="/roll-dice/6">6</a>
+</div>
+
+<nav th:replace="partials :: footer" />
+
+<nav th:replace="partials :: materialize-script" />
+</body>
+</html>
+
