@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<nav th:replace="partials :: head ('Create a Post')"/>
+<body>
+<nav th:replace="partials :: navbar" />
+<div class="main">
+    <form action="/posts/create" th:action="@{/posts/create}" method="post" th:object="${post}">
+        <input id="title" name="title" type="text" class="validate" th:field="*{title}"/>
+        <label for="title">Title</label>
+
+        <textarea id="body" name="body" class="materialize-textarea" th:field="*{body}" />
+        <label for="body">Body</label>
+        <button type="submit" value="submit" class="btn waves-effect">Submit</button>
+    </form>
+
+
+</div>
+</body>
+</html>
