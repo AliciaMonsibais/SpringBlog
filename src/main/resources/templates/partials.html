@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:fragment="head (title)">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <head th:fragment="head (title)">
+    <link rel="stylesheet" href="/css/main.css" />
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="../static/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
-    <title th:text="${title}"></title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <title th:text="${title}"></title>
 </head>
 <body>
 
 <nav th:fragment="navbar" class="teal lighten-2">
     <div class="nav-wrapper">
-        <a href="/" class="brand-logo">Logo</a>
+        <a href="/"><img src="/static/img/king-arthur.jpg" class="king-arthur brand-logo" alt="king-arthur" /></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
 <!--            <li><a href="/hello">Hello</a></li>-->
             <li><a href="/roll-dice">Dice Roller</a></li>
-            <li><a href="/login">Log In</a></li>
-            <li><a href="/register">Register</a></li>
+            <li><a sec:authorize="!isAuthenticated()" th:href="@{/login}">Log In</a></li>
+            <li><a sec:authorize="!isAuthenticated()" th:href="@{/register}">Register</a></li>
+            <li th:action="@{/logout}" th:method="post"> <button sec:authorize="isAuthenticated()" class="btn-small">Logout</button>
+            </li>
         </ul>
     </div>
 </nav>

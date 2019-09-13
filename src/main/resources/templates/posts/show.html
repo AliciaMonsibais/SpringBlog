@@ -3,11 +3,14 @@
 <nav th:replace="partials :: head ('Showing Posts')"/>
 <body>
 <nav th:replace="partials :: navbar" />
-<div class="main">
-<div th:each="post : ${posts}">
-<p th:text="${posts.text}" />
-</div>
-</div>
+<main class="container">
+    <div class="col s12 z-depth-2">
+        <h3 th:text="${post.title}"/>
+        <img th:each="img : ${post.images}" th:src="${img.path}" alt="doggies"/>
+        <p class="card-text" th:text="${post.body}"/>
+        <a href="#" th:text="${post.user.email}"></a>
+    </div>
+</main>
 <nav th:replace="partials :: footer" />
 <nav th:replace="partials :: materialize-script" />
 </body>

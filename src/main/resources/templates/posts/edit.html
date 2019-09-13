@@ -3,7 +3,7 @@
 <nav th:replace="partials :: head ('Create a Post')"/>
 <body>
 <nav th:replace="partials :: navbar" />
-<div class="main">
+<main>
     <form action="" th:action="@{/posts/{id}/edit(id=${id})}" method="post" th:object="${post}">
         <input id="title" name="title" type="text" class="validate" th:field="*{title}"/>
         <label for="title">Title</label>
@@ -12,7 +12,7 @@
         <button type="submit" value="submit" class="btn waves-effect">Submit</button>
     </form>
 
-</div>
+</main>
 
 </body>
 </html>
