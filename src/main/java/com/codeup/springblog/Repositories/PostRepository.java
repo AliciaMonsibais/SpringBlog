@@ -10,10 +10,8 @@ import java.util.List;
 
 
 public interface PostRepository extends CrudRepository<Post, Long> {
+    Post findByTitle(String title);
 
-    Post findbyTitle(String title);
-
-    @Query("from Post a where a.title like %:term%")
+    @Query("from Post where title like %:term%")
     List<Post> searchByTitleLike(@Param("term") String term);
-
 }

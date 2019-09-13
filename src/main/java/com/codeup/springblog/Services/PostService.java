@@ -23,9 +23,9 @@ public class PostService {
         return postDao.findOne(id);
     }
 
-//    public Post findbyId(){
-//        return postDao.findbyID();
-//    }
+    public Post findbyTitle(String title){
+        return postDao.findByTitle(title);
+    }
 
     public void save(Post post) {
         postDao.save(post);

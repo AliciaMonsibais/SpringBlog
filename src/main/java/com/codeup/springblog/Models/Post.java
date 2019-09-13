@@ -1,36 +1,43 @@
 package com.codeup.springblog.Models;
 
 import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table(name = "posts")
 public class Post {
+
     @Id @GeneratedValue
     private long id;
-    @Column(nullable = false, length = 120)
+    @Column(nullable = false, length = 100)
     private String title;
-    @Column(nullable = false, length = 18500)
+    @Column(nullable = false)
     private String body;
-    @ManyToOne
-    @JoinColumn (name = "user_id")
+
+    @OneToOne
     private User user;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    private List<PostImage> images;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="posts_categories",
+            joinColumns = {@JoinColumn(name="post_id")},
+            inverseJoinColumns = {@JoinColumn(name="category_id")}
+    )
+    private List<PostCategory> categories;
 
     public Post(){
     }
 
-    public Post(String title, String body){
-        this.title = title;
-        this.body = body;
-    }
-
-    public Post(String title, long id){
+    public Post(long id, String title, String body, User user, List<PostImage> imgs, List<PostCategory> categories) {
         this.title = title;
         this.body = body;
         this.id = id;
-    }
-
-    public Post(String title, String body, User user){
-        this.title = title;
-        this.body = body;
         this.user = user;
+        this.images = imgs;
+        this.categories = categories;
     }
 
     public String getTitle(){
@@ -63,5 +70,21 @@ public class Post {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<PostImage> getImages() {
+        return images;
+    }
+
+    public void setImages(List<PostImage> images) {
+        this.images = images;
+    }
+
+    public List<PostCategory> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<PostCategory> categories) {
+        this.categories = categories;
     }
 }
