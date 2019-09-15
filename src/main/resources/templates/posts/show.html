@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <nav th:replace="partials :: head ('Showing Posts')"/>
 <body>
 <nav th:replace="partials :: navbar" />
@@ -9,6 +9,12 @@
         <img th:each="img : ${post.images}" th:src="${img.path}" alt="doggies"/>
         <p class="card-text" th:text="${post.body}"/>
         <a href="#" th:text="${post.user.email}"></a>
+        <div sec:authorize="isAuthenticated()" th:if="${#authentication.principal.id} == ${post.user.id}">
+            <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn-small waves-effect"><i
+                    class="material-icons">edit</i></a>
+            <form th:action="@{/posts/{id}/delete(id=${post.id})}" th:method="POST"> <button class="btn-small waves-effect red"><i
+                    class="material-icons">delete</i></button></form>
+        </div>
     </div>
 </main>
 <nav th:replace="partials :: footer" />
