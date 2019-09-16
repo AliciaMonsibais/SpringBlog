@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<nav th:replace="partials :: head ('Login')"/>
+<head th:replace="fragments/header :: head ('Home')"/>
 <body>
-<nav th:replace="partials :: navbar" />
+<nav th:replace="fragments/navbar :: navbar" />
 <main>
     <h4>Log In</h4>
     <div th:if="${param.error}">
@@ -24,7 +24,7 @@
     </form>
 
 </main>
-    <nav th:replace="partials :: footer" />
-    <nav th:replace="partials :: materialize-script" />
+<footer th:replace="fragments/footer :: footer" />
+<script th:replace="fragments/scripts :: scripts" />
 </body>
 </html>

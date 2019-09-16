@@ -8,9 +8,7 @@ main {
     flex: 1 0 auto;
 }
 
-.king-arthur {
-    border-radius: 50%;
-    /*background-image: url("../img/king-arthur.jpg");*/
-    /*width: 75%;*/
-    /*height: 75%;*/
+.tea-logo {
+    height: 50px;
+    width: 50px;
 }

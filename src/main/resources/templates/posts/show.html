@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<nav th:replace="partials :: head ('Showing Posts')"/>
+<head th:replace="fragments/header :: head ('Home')"/>
 <body>
-<nav th:replace="partials :: navbar" />
+<nav th:replace="fragments/navbar :: navbar" />
 <main class="container">
     <div class="col s12 z-depth-2">
         <h3 th:text="${post.title}"/>
-        <img th:each="img : ${post.images}" th:src="${img.path}" alt="doggies"/>
+        <img th:each="img : ${post.images}" th:src="${img.path}" alt="placement-img"/>
         <p class="card-text" th:text="${post.body}"/>
         <a href="#" th:text="${post.user.email}"></a>
         <div sec:authorize="isAuthenticated()" th:if="${#authentication.principal.id} == ${post.user.id}">
@@ -17,7 +17,7 @@
         </div>
     </div>
 </main>
-<nav th:replace="partials :: footer" />
-<nav th:replace="partials :: materialize-script" />
+<footer th:replace="fragments/footer :: footer" />
+<script th:replace="fragments/scripts :: scripts" />
 </body>
 </html>

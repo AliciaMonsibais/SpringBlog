@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<nav th:replace="partials :: head ('Create a Post')"/>
+<head th:replace="fragments/header :: head ('Home')"/>
 <body>
-<nav th:replace="partials :: navbar" />
+<nav th:replace="fragments/navbar :: navbar" />
 <main>
     <form action="" th:action="@{/posts/{id}/edit(id=${id})}" method="post" th:object="${post}">
         <input id="title" name="title" type="text" class="validate" th:field="*{title}"/>
@@ -14,5 +14,7 @@
 
 </main>
 
+<footer th:replace="fragments/footer :: footer" />
+<script th:replace="fragments/scripts :: scripts" />
 </body>
 </html>

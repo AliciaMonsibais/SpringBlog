@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: head ('Home')"/>
+<head th:replace="fragments/header :: head ('Error')"/>
 <body>
+
 <nav th:replace="fragments/navbar :: navbar" />
 <main>
 
-<h3>This is the home page</h3>
+    <h3>Oh no! Something went wrong.</h3>
+    <img th:src="@{'/img/spiltTea.png'}" class="spilt-tea" alt="spilt-tea" />
+
 
 </main>
 <footer th:replace="fragments/footer :: footer" />
 <script th:replace="fragments/scripts :: scripts" />
+
 </body>
 </html>

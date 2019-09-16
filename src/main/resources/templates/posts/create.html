@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<nav th:replace="partials :: head ('Create a Post')"/>
+<head th:replace="fragments/header :: head ('Home')"/>
 <body>
-<nav th:replace="partials :: navbar" />
+<nav th:replace="fragments/navbar :: navbar" />
 <main>
     <form action="/posts/create" th:action="@{/posts/create}" method="post" th:object="${post}">
         <input id="title" name="title" type="text" class="validate" th:field="*{title}"/>
@@ -12,8 +12,9 @@
         <label for="body">Body</label>
         <button type="submit" value="submit" class="btn waves-effect">Submit</button>
     </form>
-
-
 </main>
+
+<footer th:replace="fragments/footer :: footer" />
+<script th:replace="fragments/scripts :: scripts" />
 </body>
 </html>

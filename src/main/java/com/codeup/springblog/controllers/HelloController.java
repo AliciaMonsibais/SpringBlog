@@ -11,6 +11,12 @@ class HelloController {
         return "Hello from Spring!";
     }
 
+    @GetMapping("/error")
+    @ResponseBody
+    public String error(){
+        return "error";
+    }
+
     @GetMapping("/hello/{name}")
     @ResponseBody
     public String sayHello(@PathVariable String name){

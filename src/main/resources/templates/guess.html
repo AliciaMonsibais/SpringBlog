@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<nav th:replace="partials :: head ('Guess')"/>
+<head th:replace="fragments/header :: head ('Home')"/>
 <body>
 
-<nav th:replace="partials :: navbar" />
+<nav th:replace="fragments/navbar :: navbar" />
 <main>
 <h3>Guess a Number</h3>
 
@@ -15,9 +15,9 @@
 <a href="/roll-dice/6">6</a>
 </main>
 
-<nav th:replace="partials :: footer" />
+<footer th:replace="fragments/footer :: footer" />
 
-<nav th:replace="partials :: materialize-script" />
+<script th:replace="fragments/scripts :: scripts" />
 </body>
 </html>
 
