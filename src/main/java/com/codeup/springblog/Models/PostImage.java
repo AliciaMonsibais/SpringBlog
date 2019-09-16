@@ -18,9 +18,9 @@ public class PostImage {
     public PostImage() {
     }
 
-    public PostImage(long id, String path, Post ad) {
+    public PostImage(long id, String path, Post post) {
         this.path = path;
-        this.post = ad;
+        this.post = post;
         this.id = id;
     }
 

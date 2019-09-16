@@ -12,8 +12,8 @@ import java.util.List;
 
 public interface PostRepository extends CrudRepository<Post, Long> {
     Post findByTitle(String title);
-    Iterable<Post> findByUser(User user);
 
-    @Query("from Post where title like %:term%")
+    @Query("from Post p where p.title like %:term%")
     List<Post> searchByTitleLike(@Param("term") String term);
+    Iterable<Post> findByUser_Id(long user_id);
 }
