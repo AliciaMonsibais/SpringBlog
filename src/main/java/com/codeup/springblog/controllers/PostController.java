@@ -38,11 +38,6 @@ public class PostController {
     public String show(@PathVariable long id, Model model){
         Post post = postDao.findOne(id);
         model.addAttribute("post", post);
-//        String email = post.getUser().getEmail();
-//        model.addAttribute("id", id);
-//        model.addAttribute("title", post.getTitle());
-//        model.addAttribute("body", post.getBody());
-//        model.addAttribute("email", email);
         return "posts/show";
     }
 
@@ -90,12 +85,6 @@ public String updatePost(@PathVariable long id, @RequestParam(name = "title") St
         return "redirect:/posts/" + savedPost.getId();
     }
 
-//    @GetMapping("/posts/{id}/delete")
-//    public String checkForDelete(@PathVariable int id, Model model) {
-//        Post post = postDao.findOne((long) id);
-//        model.addAttribute("post", post);
-//        return "posts/delete";
-//    }
 
     @PostMapping("/posts/{id}/delete")
     public String deletePost(@PathVariable long id) {

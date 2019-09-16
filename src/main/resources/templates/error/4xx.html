@@ -6,16 +6,19 @@
 <body>
 
 <nav th:replace="fragments/navbar :: navbar" />
-<th:block th:switch="${error}">
-    <div th:case="'Not Found'">
-        <h1>Page not found!!</h1>
-    </div>
-    <div th:case="'Forbidden'">
-        <h1>You don't have permission to view this page.</h1>
-    </div>
-</th:block>
-<a href="/" class="waves-effect btn"><i class="material-icons right">home</i>Go Home</a>
-<img th:src="@{'/img/spiltTea.jpg'}" class="spilt-tea" alt="spilt-tea" />
+<main>
+    <th:block th:switch="${error}">
+        <div th:case="'Not Found'">
+            <h1>Page not found!!</h1>
+        </div>
+        <div th:case="'Forbidden'">
+            <h1>You don't have permission to view this page.</h1>
+        </div>
+    </th:block>
+    <a href="/" class="waves-effect btn"><i class="material-icons right">home</i>Go Home</a>
+    <br/>
+    <img th:src="@{'/img/spiltTea.jpg'}" class="spilt-tea" alt="spilt-tea"/>
+</main>
 
 <footer th:replace="fragments/footer :: footer" />
 <script th:replace="fragments/scripts :: scripts" />

@@ -5,15 +5,17 @@
 <nav th:replace="fragments/navbar :: navbar" />
 <main class="container">
     <div class="row">
-        <div class="col s4">
-            <div class="card" th:each="post : ${posts}">
-                <div class="card-image">
-                    <img th:src="@{'https://picsum.photos/200/300?id=' + ${post.id}}" alt="placeholder"/>
-                    <span class="card-title" th:text="${post.title}"></span>
-                </div>
-                <div class="card-action">
-                    <a th:href="@{/posts/{id}(id=${post.id})}" class="btn-small waves-effect"><i
-                            class="material-icons right">visibility</i>View</a>
+        <div th:each="post : ${posts}">
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img th:src="@{'https://picsum.photos/200/300?id=' + ${post.id}}" alt="placeholder"/>
+                        <span class="card-title" th:text="${post.title}"></span>
+                    </div>
+                    <div class="card-action">
+                        <a th:href="@{/posts/{id}(id=${post.id})}" class="btn-small waves-effect"><i
+                                class="material-icons right">visibility</i>View</a>
+                    </div>
                 </div>
             </div>
         </div>
