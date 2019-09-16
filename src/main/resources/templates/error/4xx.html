@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="fragments/header :: head ('Oops, ' + ${error})"/>
+</head>
+<body>
+
+<nav th:replace="fragments/navbar :: navbar" />
+<th:block th:switch="${error}">
+    <div th:case="'Not Found'">
+        <h1>Page not found!!</h1>
+    </div>
+    <div th:case="'Forbidden'">
+        <h1>You don't have permission to view this page.</h1>
+    </div>
+</th:block>
+<a href="/" class="waves-effect btn"><i class="material-icons right">home</i>Go Home</a>
+<img th:src="@{'/img/spiltTea.jpg'}" class="spilt-tea" alt="spilt-tea" />
+
+<footer th:replace="fragments/footer :: footer" />
+<script th:replace="fragments/scripts :: scripts" />
+</body>
+</html>

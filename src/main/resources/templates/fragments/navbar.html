@@ -12,7 +12,7 @@
             <li><a sec:authorize="!isAuthenticated()" th:href="@{/login}">Log In</a></li>
             <li><a sec:authorize="!isAuthenticated()" th:href="@{/register}">Register</a></li>
             <form th:action="@{/logout}" th:method="post">
-                <li><button sec:authorize="isAuthenticated()" class="btn-small">Logout</button></li>
+                <li><button sec:authorize="isAuthenticated()" class="waves-effect btn-small">Logout</button></li>
             </form>
         </ul>
     </div>
