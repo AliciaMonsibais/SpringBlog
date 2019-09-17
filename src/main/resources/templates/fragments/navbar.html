@@ -11,8 +11,9 @@
             <li><a href="/roll-dice">Dice Roller</a></li>
             <li><a sec:authorize="!isAuthenticated()" th:href="@{/login}">Log In</a></li>
             <li><a sec:authorize="!isAuthenticated()" th:href="@{/register}">Register</a></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/profile}">View Profile</a></li>
             <form th:action="@{/logout}" th:method="post">
-                <li><button sec:authorize="isAuthenticated()" class="waves-effect btn-small">Logout</button></li>
+                <li><a sec:authorize="isAuthenticated()" class="waves-effect btn-small">Logout</a></li>
             </form>
         </ul>
     </div>

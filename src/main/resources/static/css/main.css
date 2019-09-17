@@ -12,3 +12,7 @@ main {
     height: 50px;
     width: 50px;
 }
+
+.show-img {
+    margin: 0 auto;
+}
