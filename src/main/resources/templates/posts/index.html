@@ -11,6 +11,7 @@
                     <div class="card-image">
                         <img th:src="@{'https://picsum.photos/200/300?id=' + ${post.id}}" alt="placeholder"/>
                         <span class="card-title" th:text="${post.title}"></span>
+                        <span class="card-text">Authored By: <span th:text="${post.user.username}"></span></span>
                     </div>
                     <div class="card-action">
                         <a th:href="@{/posts/{id}(id=${post.id})}" class="btn-small waves-effect"><i

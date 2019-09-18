@@ -8,11 +8,30 @@ main {
     flex: 1 0 auto;
 }
 
+.page-footer {
+    height: 60px;
+    padding: 10px;
+}
+
+.homepage {
+    background-image: url("/img/teaAndPastries.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.homepage-text{
+    font-family: 'Dancing Script', cursive;
+    color: #e0f2f1;
+}
+
 .tea-logo {
     height: 50px;
     width: 50px;
 }
 
 .show-img {
-    margin: 0 auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

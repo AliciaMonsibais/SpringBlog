@@ -7,14 +7,13 @@
     <div class="nav-wrapper">
         <a href="/"><img th:src="@{'/img/tea.png'}" class="tea-logo" alt="tea" /></a>
         <ul id="nav-mobile" class="right">
+            <li><a href="#" data-activates="slide-out" class="waves-effect waves-light sideNav-btn"><i class="material-icons">search</i></a></li>
             <li><a href="/posts">Blog Posts</a></li>
             <li><a href="/roll-dice">Dice Roller</a></li>
             <li><a sec:authorize="!isAuthenticated()" th:href="@{/login}">Log In</a></li>
             <li><a sec:authorize="!isAuthenticated()" th:href="@{/register}">Register</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/profile}">View Profile</a></li>
-            <form th:action="@{/logout}" th:method="post">
-                <li><a sec:authorize="isAuthenticated()" class="waves-effect btn-small">Logout</a></li>
-            </form>
+            <li><a sec:authorize="isAuthenticated()" class="waves-effect btn-small"><form th:action="@{/logout}" th:method="post">Logout</form></a></li>
         </ul>
     </div>
 </nav>

@@ -3,7 +3,7 @@
 <head th:replace="fragments/header :: head ('Home')"/>
 <body>
 <nav th:replace="fragments/navbar :: navbar" />
-<main>
+<main class="container">
     <h4>Log In</h4>
     <div th:if="${param.error}">
         Invalid Username and/or Password.

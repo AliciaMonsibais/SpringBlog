@@ -8,6 +8,7 @@
         <h3 th:text="${post.title}"/>
         <img th:src="@{'https://picsum.photos/700/300?id=' + ${post.id}}" class="show-img" alt="placeholder"/>
         <p class="card-text" th:text="${post.body}"/>
+        <p class="card-text">Authored By: <span th:text="${post.user.username}"></span></p>
         <a href="#" th:text="${post.user.email}"></a>
         <div sec:authorize="isAuthenticated()" th:if="${#authentication.principal.id} == ${post.user.id}">
             <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn-small waves-effect"><i

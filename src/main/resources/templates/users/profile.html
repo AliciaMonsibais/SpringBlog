@@ -6,10 +6,15 @@
 
 <main class="container">
     <h3>Welcome back, <span th:text="${user.username}"></span>!</h3>
+    <a th:href="@{/posts/create}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
     <div th:each="post : ${posts}">
         <div class="col s12">
             <h4 th:text="${post.title}"></h4>
             <p th:text="${post.body}"></p>
+            <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn-small waves-effect"><i
+                    class="material-icons">edit</i></a>
+            <form th:action="@{/posts/{id}/delete(id=${post.id})}" th:method="POST"> <button class="btn-small waves-effect red"><i
+                    class="material-icons">delete</i></button></form>
         </div>
     </div>
 </main>

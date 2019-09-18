@@ -6,16 +6,11 @@
 <body>
 
 <nav th:replace="fragments/navbar :: navbar" />
-<main>
-    <th:block th:switch="${error}">
-        <div th:case="'Not Found'">
-            <h1>Page not found!!</h1>
-        </div>
-        <div th:case="'Forbidden'">
-            <h1>You don't have permission to view this page.</h1>
-        </div>
-    </th:block>
+<main class="container">
+    <h3 th:text="${error}"></h3>
+    <br/>
     <a href="/" class="waves-effect btn"><i class="material-icons right">home</i>Go Home</a>
+    <br/>
     <br/>
     <img th:src="@{'/img/spiltTea.jpg'}" class="spilt-tea" alt="spilt-tea"/>
 </main>
